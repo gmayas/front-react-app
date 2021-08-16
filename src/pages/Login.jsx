@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Login() {
   const classes = useStyles();
 
   let history = useHistory();
@@ -100,7 +100,8 @@ export default function SignIn() {
       const data = { username, password };
       console.log(data)
       setValidate(false);
-      history.push("/");
+      login();
+      //history.push("/");
     } else {
       setValidate(true);
       console.log('Error en su captura')
@@ -115,7 +116,7 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Login
         </Typography>
         <Container className={classes.root} >
           <FormControl variant="outlined" fullWidth>
@@ -150,7 +151,7 @@ export default function SignIn() {
               color="primary"
               className={classes.submit}
               onClick={submit}>
-              Sign In
+              Login
             </Button>
           </FormControl>
           <FormControl fullWidth>

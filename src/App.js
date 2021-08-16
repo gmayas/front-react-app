@@ -3,8 +3,9 @@ import './App.css';
 //import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home'
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import Registration from './pages/Registration';
+import PageNotFound from "./pages/PageNotFound";
 import { AuthContext } from "./helpers/AuthContext";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -23,6 +24,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles((theme) => ({
   '@global': {
@@ -69,6 +72,15 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1, 1.5),
+  },
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
   },
 }));
 
@@ -155,8 +167,9 @@ const App = () => {
           </AppBar>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/registration" exact component={SignUp} />
-            <Route path="/login" exact component={SignIn} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/registration" exact component={Registration} />
+            <Route path="*" exact component={PageNotFound} />
           </Switch>
         </Router>
       </AuthContext.Provider>
